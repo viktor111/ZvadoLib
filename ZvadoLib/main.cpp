@@ -6,6 +6,8 @@ int main() {
 	int k;
 
 	List<char> arr;
+
+	printf("%d", arr.is_empty());
 	
 	arr.push_back('V'); 
 	arr.push_back('A');
@@ -19,6 +21,9 @@ int main() {
 	printf("\n");
 
 	printf("%d\n", index);
-	printf("%c", arr[index]);
+	printf("%c", arr[10]);
 
+	printf("\n");
+
+	printf("%d", arr.is_empty());
 }

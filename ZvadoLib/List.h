@@ -56,9 +56,9 @@ public:
 
     T& operator[] (int index) {
         if (index > size) {
-            std::cout << "[-] List out of bounds";
-            exit(0);
+            throw "Index out of range";
         }
+        
         return first_cell[index];
     }
 
