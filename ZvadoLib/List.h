@@ -1,4 +1,3 @@
-#include<malloc.h>
 template<class T>
 class List {
 
@@ -6,6 +5,20 @@ private:
     T* first_cell = nullptr;
     int size = 0; // currently occupied elements
     int capacity = 8; // size of the allocated memory
+
+    void resize() {
+        int new_cap = capacity * 2; // increased capacity
+        T* new_arr = new T[new_cap]; // new arr with new capacity
+
+        for (int k = 0; k < size; ++k) {
+            new_arr[k] = first_cell[k]; // copy data from frist array
+        }
+
+        delete[] first_cell; // remove first array
+
+        first_cell = new_arr;
+        capacity = new_cap;
+    }
 
 public:
     List() {
@@ -43,17 +56,7 @@ public:
 
     void push_back(int number) {
         if (size == capacity) {
-            int new_cap = capacity * 2; // increased capacity
-            T* new_arr = new T[new_cap]; // new arr with new capacity
-
-            for (int k = 0; k < size; ++k) {
-                new_arr[k] = first_cell[k]; // copy data from frist array
-            }
-
-            delete[] first_cell; // remove first array
-
-            first_cell = new_arr;
-            capacity = new_cap;
+            resize();
         }
         first_cell[size] = number;
         ++size;
@@ -73,8 +76,6 @@ public:
         }
         return -1;
     }
-
-
 
     void print(char symb) {
         for (int k = 0; k < size; ++k) {            
