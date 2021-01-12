@@ -74,15 +74,25 @@ public:
         return size;
     }
 
-    int first_index_of(int number) {
+    int first_index_of(T object) {
         for (int k = 0; k < size; k++) {
             
-            if (number == first_cell[k]) {
+            if (object == first_cell[k]) {
                 
                 return k;
             }           
         }
         return -1;
+    }
+
+    int is_empty() {
+        if (size == 0) {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     void print(char symb) {

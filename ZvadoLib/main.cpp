@@ -6,26 +6,19 @@ int main() {
 	int k;
 
 	List<char> arr;
+	
+	arr.push_back('V'); 
+	arr.push_back('A');
+	arr.push_back('Z');
+	arr.push_back('O');
 
-	for (k = 0; k <= 10; k++) {
-		arr.push_back('w');
-	}
-	printf("CHAR ---- %c", arr[122]);
+	arr.print('\0');
 
-	arr.push_back('r');
-	arr.push_back('2');
-	arr.print('|');
+	int index = arr.first_index_of('Z');
 
-	List<char> arr2;
-
-	arr2 = arr;
-
-	arr2.print(' ');
-
-	int index = arr.first_index_of(4);
 	printf("\n");
-	printf("index of  %d", index);
 
-	printf("CHAR ---- %c",arr[122]);
+	printf("%d\n", index);
+	printf("%c", arr[index]);
 
 }

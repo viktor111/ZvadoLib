@@ -1,0 +1,6 @@
+class String {
+private:
+
+public:
+
+};
