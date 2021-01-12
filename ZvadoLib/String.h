@@ -1,6 +1,0 @@
-class String {
-private:
-
-public:
-
-};

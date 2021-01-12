@@ -1,11 +1,13 @@
 #include <iostream>
+#include <ostream>
 
-#include "List.h"
+#include "ZList.h"
+#include "ZString.h"
 
 int main() {
 	int k;
 
-	List<char> arr;
+	ZList<char> arr;
 
 	printf("%d", arr.is_empty());
 	
@@ -21,9 +23,15 @@ int main() {
 	printf("\n");
 
 	printf("%d\n", index);
-	printf("%c", arr[10]);
+	printf("%c", arr[index]);
 
 	printf("\n");
 
 	printf("%d", arr.is_empty());
+
+	ZString str("Viktor");
+	ZString str2(" Draganov");
+	ZString result = str + str2;
+
+	printf("\nName - %s", result);
 }

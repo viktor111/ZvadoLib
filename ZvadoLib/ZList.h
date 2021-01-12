@@ -1,5 +1,5 @@
 template<class T>
-class List {
+class ZList {
 
 private:
     T* first_cell = nullptr;
@@ -21,11 +21,11 @@ private:
     }
 
 public:
-    List() {
+    ZList() {
         first_cell = new T[capacity]; // Declare the array in memory
     }
 
-    List(const List& src)
+    ZList(const ZList& src)
         : size(src.size),
         capacity(src.capacity)
     {
@@ -33,7 +33,7 @@ public:
         std::copy_n(src.first_cell, size, first_cell);
     }
 
-    List(List&& src)
+    ZList(ZList&& src)
         : first_cell(src.first_cell),
         size(src.size),
         capacity(src.capacity)
@@ -42,12 +42,12 @@ public:
         src.size = src.capacity = 0;
     }
 
-    ~List() {
+    ~ZList() {
         delete[] first_cell;
     }
 
-    List& operator=(List rhs) {
-        List temp(std::move(rhs));
+    ZList& operator=(ZList rhs) {
+        ZList temp(std::move(rhs));
         std::swap(first_cell, temp.first_cell);
         std::swap(size, temp.size);
         std::swap(capacity, temp.capacity);
