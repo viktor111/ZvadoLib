@@ -1,26 +1,26 @@
 #include<malloc.h>
-
-class IntArray {
+template<class T>
+class List {
 
 private:
-    int* first_cell = nullptr;
+    T* first_cell = nullptr;
     int size = 0; // currently occupied elements
     int capacity = 8; // size of the allocated memory
 
 public:
-    IntArray() {
-        first_cell = new int[capacity]; // Declare the array in memory
+    List() {
+        first_cell = new T[capacity]; // Declare the array in memory
     }
 
-    IntArray(const IntArray& src)
+    List(const List& src)
         : size(src.size),
         capacity(src.capacity)
     {
-        first_cell = new int[capacity];
+        first_cell = new T[capacity];
         std::copy_n(src.first_cell, size, first_cell);
     }
 
-    IntArray(IntArray&& src)
+    List(List&& src)
         : first_cell(src.first_cell),
         size(src.size),
         capacity(src.capacity)
@@ -29,12 +29,12 @@ public:
         src.size = src.capacity = 0;
     }
 
-    ~IntArray() {
+    ~List() {
         delete[] first_cell;
     }
 
-    IntArray& operator=(IntArray rhs) {
-        IntArray temp(std::move(rhs));
+    List& operator=(List rhs) {
+        List temp(std::move(rhs));
         std::swap(first_cell, temp.first_cell);
         std::swap(size, temp.size);
         std::swap(capacity, temp.capacity);
@@ -44,7 +44,7 @@ public:
     void push_back(int number) {
         if (size == capacity) {
             int new_cap = capacity * 2; // increased capacity
-            int* new_arr = new int[new_cap]; // new arr with new capacity
+            T* new_arr = new T[new_cap]; // new arr with new capacity
 
             for (int k = 0; k < size; ++k) {
                 new_arr[k] = first_cell[k]; // copy data from frist array
@@ -62,6 +62,19 @@ public:
     int length() {
         return size;
     }
+
+    int first_index_of(int number) {
+        for (int k = 0; k < size; k++) {
+            
+            if (number == first_cell[k]) {
+                
+                return k;
+            }           
+        }
+        return -1;
+    }
+
+
 
     void print(char symb) {
         for (int k = 0; k < size; ++k) {            

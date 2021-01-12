@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="IntArray.h" />
+    <ClInclude Include="Array.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
