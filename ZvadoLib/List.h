@@ -54,6 +54,14 @@ public:
         return *this;
     }
 
+    T& operator[] (int index) {
+        if (index > size) {
+            std::cout << "[-] List out of bounds";
+            exit(0);
+        }
+        return first_cell[index];
+    }
+
     void push_back(int number) {
         if (size == capacity) {
             resize();

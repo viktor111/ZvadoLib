@@ -10,6 +10,7 @@ int main() {
 	for (k = 0; k <= 10; k++) {
 		arr.push_back('w');
 	}
+	printf("CHAR ---- %c", arr[122]);
 
 	arr.push_back('r');
 	arr.push_back('2');
@@ -24,5 +25,7 @@ int main() {
 	int index = arr.first_index_of(4);
 	printf("\n");
 	printf("index of  %d", index);
+
+	printf("CHAR ---- %c",arr[122]);
 
 }
